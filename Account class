@@ -1,138 +1,95 @@
 package com.company;
 
 /**
- * A class takes the info about the client
+ * A class that use to set the the account information of the client
  */
-public class Client  {
-    private String name;
-    private String National_Id="00000000000000";
-    private String Address;
-    private long phone;
-    private Account account;
+public class Account {
+    private double balance;
+    private long Account_Number;
+    private static long account_number =100 ;
 
     /**
      * Empty constructor
      */
-    public Client() {
+    public Account (){
+        account_number++;
+        Account_Number=account_number;
+        balance = 1000; // as an initial value
     }
 
     /**
-     * parameterized constructor to set the value of the attributes with national ID
-     * @param name variable to set the name
-     * @param NationalId variable to set the value of National ID
-     * @param Address variable used to set address
-     * @param phone variable which used to set the value of the phone
-     * @param account object used to set the account of the client
+     * A parameterized constructor take the account number from user and put initial value of the balance
+     * @param Account_Number variable takes to set the account number
      */
-    public Client(String name, String NationalId, String Address, long phone, Account account) {
-        this.name = name;
-        this.National_Id = NationalId;
-        this.Address = Address;
-        this.phone = phone;
-        this.account = account;
+    public Account (int Account_Number){
+        balance = 1000;
+        this.Account_Number = Account_Number;
     }
 
     /**
-     * parameterized constructor to set the value of the attributes without national ID to use in commercial client class
-     * @param name variable to set the name
-     * @param Address variable used to set address
-     * @param phone variable which used to set the value of the phone
-     * @param account object used to set the account of the client
+     * setter method to set the value of the balance
+     * @param balance variable takes to set to the balance
      */
-    public Client(String name, String Address, long phone,Account account) {
-        this.name = name;
-        this.Address = Address;
-        this.phone = phone;
-        this.account = account;
+    public void set_balance(double balance){
+        this.balance = balance;
     }
 
     /**
-     * method used to set the name
-     * @param name variable takes to set the name
+     * setter method to set the value of teh account number
+     * @param account_number parameter which use to set the value of the account number
      */
-    public void setName(String name) {
-        this.name = name;
+    public void set_account_number(int account_number){
+        this.Account_Number = account_number;
     }
 
     /**
-     * method to set the value of national ID
-     * @param NationalId value to set national ID
+     * method that return the value of the balance
+     * @return return the value of the balance
      */
-    public void setNationalId(String NationalId) {
-        this.National_Id = NationalId;
+    public double get_balance(){
+        return balance;
     }
 
     /**
-     * method to set address
-     * @param Address variable to set address
+     * method that return the value of the account number
+     * @return
      */
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public long get_account_number(){
+        return Account_Number;
     }
 
     /**
-     * method to set the value phone
-     * @param phone variable use to set the value of phone
-     */
-    public void setPhone(long phone) {
-        this.phone = phone;
-    }
-
-    /**
-     * method to set the object of account class
-     * @param account object from account class used to set the account in this class
-     */
-    public void setAccount (Account account) {
-        this.account = account;
-    }
-
-    /**
-     * method to get the name of the client
-     * @return the name of the client
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * method to get the national Id
-     * @return National Id
-     */
-    public String getNationalId() {
-        return National_Id;
-    }
-
-    /**
-     * method to get address
-     * @return address
-     */
-    public String getAddress() {
-        return Address;
-    }
-
-    /**
-     *method to get phone
-     * @return value of the phone
-     */
-    public long getPhone() {
-        return phone;
-    }
-
-    /**
-     * method to get the object of the account class
-     * @return the object of the account class
-     */
-    public Account getAccount() {
-        return account;
-    }
-
-    /**
-     * Override the method toString ( ) inherited from class Object to make it return a meaningful string representation of the client information. String representing Client information, should also include his account’s information.
-     * @return a meaningful of the information of the client
+     * Override the method toString ( ) inherited from class Object to make it return a meaningful string representation of the account information.
+     * @return a meaningful string representation of the account information.
      */
     @Override
     public String toString() {
-        return  "Name=" + name + ", NationalId=" + National_Id + ", Address=" + Address + ", phone=" + phone + ", " +account ;
+        return  "balance=" + balance + ", account_number=" + Account_Number ;
     }
 
+    /**
+     * method enable client to be able to take money
+     * @param num the value that he want to take from its balance
+     */
+    public void withdraw(double num){
+        if(num<balance){
+            double new_balance = balance - num ;
+            balance = new_balance ;}
+        else
+        {System.out.println("your balance account less than your entry number ");}
+    }
+
+    /**
+     * method enable the client to put mney to his balance
+     * @param num the value that he want to put to his balance
+     */
+
+    public void deposit(double num ){
+        double new_balance = balance + num ;
+        balance = new_balance;
+    }
+
+
 }
+
+
