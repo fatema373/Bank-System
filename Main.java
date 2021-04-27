@@ -3,9 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 /**
- * @author : Fatema Hesham Abdulrahman , ID: 20190373
- * @author : Doha Alaa Mosa , ID:20190272
- * @author : Salma Sherif Hussien , ID: 20190239
+ * @author : Fatema Hesham Abdulrahman 
  */
 
 public class Main {
